@@ -1,12 +1,11 @@
 pipeline{
-    agent{
-        any
-    }
+    agent none
     stages{
         stage("Build"){
-
+            agent any
             steps{
                 echo "========executing A========"
+                sh 'docker build -t manikmagar/test-nginx .'
             }
             post{
                 always{
